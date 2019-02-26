@@ -1,6 +1,7 @@
 package com.example.todoapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -12,8 +13,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        loadLoginActivity();
+        SharedPreferences pref = getSharedPreferences("UserInfo", MODE_PRIVATE);
 
+        System.out.println("Uid = " + pref.getString("Uid", "0"));
+
+        if (pref.getString("Uid", "0").equals("0")) {
+            loadLoginActivity();
+        } else {
+            System.out.println("ログインしない");
+        }
 
     }
 
