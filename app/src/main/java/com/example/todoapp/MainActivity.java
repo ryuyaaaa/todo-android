@@ -20,8 +20,10 @@ public class MainActivity extends AppCompatActivity {
         if (pref.getString("Uid", "0").equals("0")) {
             loadLoginActivity();
         } else {
-            System.out.println("ログインしない");
+            System.out.println("ログイン成功");
         }
+
+
 
     }
 
